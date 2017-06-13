@@ -9,7 +9,7 @@ window.onload = function() {
 
 function getEndTime(minutes) {
 	var starts = new Date().getTime();
-	var time = starts + (1000 * 60 * minutes);
+	var time = starts + (1000 * minutes);
 	var ends = new Date(time);
 	return ends;
 }
@@ -32,14 +32,14 @@ function getTimeRemaining(endTime) {
 }
 
 function pomodoro() {
-	var pomodoroEnd = getEndTime(25);
+	var pomodoroEnd = getEndTime(5);
 	$("#start").css("visibility", "hidden")
 	$("#task").css("visibility", "visible")
 	$("#timeLeft").css("visibility", "visible")
 	$("#task").html("Get to work!");
 	timer = window.setInterval(function() {
 		var time = getTimeRemaining(pomodoroEnd);
-		if () {
+		if (time != null) {
 			$("#minutes").html(time[0]);	
 			$("#seconds").html(time[1]);
 		} else {
@@ -47,7 +47,7 @@ function pomodoro() {
 			takeBreak.play();
 			pomodoro_break();
 		}
-	}, 1);
+	}, 900);
 	cycleCount += 1;
 }
 
@@ -68,7 +68,7 @@ function pomodoro_break() {
 			toWork.play();
 			pomodoro();
 		}
-	}, 1);
+	}, 900);
 }
 
 function addZeroBefore(number) {
