@@ -7,7 +7,7 @@
 	left:50%;
 	position: absolute;
 	transform: translate(-50%, -50%);
-	margin: 0 left;
+	visibility: hidden;
 }
 
 #timeLeft{
@@ -19,7 +19,18 @@
 	left:50%;
 	position: absolute;
 	transform: translate(-50%, -50%);
-	margin: 0 left;
+	visibility: hidden;
+}
+
+#start{
+	white-space: nowrap;
+    font-weight: bold;
+    color: black;
+    font-size: 2000%;
+	top:50%;
+	left:50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
 }
 
 #milliseconds {
