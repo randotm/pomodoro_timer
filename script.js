@@ -1,8 +1,7 @@
-var pomodoroCount = 0
-testEnd = new Date(1497378493231);
-var timer;
 var cycleCount = 0;
-var tim;
+var timer;
+var toWork = new Audio("back_to_work_Barbossa.mp3");
+var takeBreak = new Audio("break_time.mp3");
 
 window.onload = function() {
 	$("start").click();
@@ -39,18 +38,20 @@ function pomodoro() {
 	$("#timeLeft").css("visibility", "visible")
 	$("#task").html("Get to work!");
 	timer = window.setInterval(function() {
-		if (getTimeRemaining(pomodoroEnd) != null) {
-			if (getTimeRemaining(pomodoroEnd) != null) {
-				$("#minutes").html(getTimeRemaining(pomodoroEnd)[0]);
+		var time = getTimeRemaining(pomodoroEnd);
+		if (time != null) {
+			if (time != null) {
+				$("#minutes").html(time[0]);
 			}
-			if (getTimeRemaining(pomodoroEnd) != null) {
-				$("#seconds").html(getTimeRemaining(pomodoroEnd)[1]);
+			if (time != null) {
+				$("#seconds").html(time[1]);
 			}
-			if (getTimeRemaining(pomodoroEnd) != null) {
-				$("#milliseconds").html(getTimeRemaining(pomodoroEnd)[2]);
+			if (time != null) {
+				$("#milliseconds").html(time[2]);
 			}
 		} else {
 			clearInterval(timer);
+			takeBreak.play();
 			pomodoro_break();
 		}
 	}, 1);
@@ -65,18 +66,20 @@ function pomodoro_break() {
 	}
 	$("#task").html("Take a break!");
 	timer = window.setInterval(function() {
-		if (getTimeRemaining(breakEnd) != null) {
-			if (getTimeRemaining(breakEnd) != null) {
-				$("#minutes").html(getTimeRemaining(breakEnd)[0]);
+		var time = getTimeRemaining(breakEnd);
+		if (time != null) {
+			if (time != null) {
+				$("#minutes").html(time[0]);
 			}
-			if (getTimeRemaining(breakEnd) != null) {
-				$("#seconds").html(getTimeRemaining(breakEnd)[1]);
+			if (time != null) {
+				$("#seconds").html(time[1]);
 			}
-			if (getTimeRemaining(breakEnd) != null) {
-				$("#milliseconds").html(getTimeRemaining(breakEnd)[2]);
+			if (time != null) {
+				$("#milliseconds").html(time[2]);
 			}
 		} else {
 			clearInterval(timer);
+			toWork.play();
 			pomodoro();
 		}
 	}, 1);
