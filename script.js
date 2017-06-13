@@ -9,7 +9,7 @@ window.onload = function() {
 
 function getEndTime(minutes) {
 	var starts = new Date().getTime();
-	var time = starts + (1000 * minutes);
+	var time = starts + (1000 * 60 * minutes);
 	var ends = new Date(time);
 	return ends;
 }
@@ -32,7 +32,7 @@ function getTimeRemaining(endTime) {
 }
 
 function pomodoro() {
-	var pomodoroEnd = getEndTime(5);
+	var pomodoroEnd = getEndTime(25);
 	$("#start").css("visibility", "hidden")
 	$("#task").css("visibility", "visible")
 	$("#timeLeft").css("visibility", "visible")
