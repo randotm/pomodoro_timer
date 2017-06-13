@@ -1,7 +1,7 @@
 #task{
 	white-space: nowrap;
     font-weight: bold;
-    color: black;
+    color: white;
     font-size: 500%;
 	top:25%;
 	left:50%;
@@ -13,7 +13,7 @@
 #timeLeft{
 	white-space: nowrap;
     font-weight: bold;
-    color: black;
+    color: white;
     font-size: 2000%;
 	top:50%;
 	left:50%;
@@ -25,7 +25,7 @@
 #start{
 	white-space: nowrap;
     font-weight: bold;
-    color: black;
+    color: white;
     font-size: 2000%;
 	top:50%;
 	left:50%;
@@ -34,5 +34,6 @@
 }
 
 body{
-	
+	background-color: #3D3D3D;
+	font-family: 'Oswald', sans-serif;
 }
