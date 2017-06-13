@@ -20,14 +20,14 @@ function getTimeRemaining(endTime) {
 	var timeLeft = new Date(endTime - now);
 	var minutes = addZeroBefore(timeLeft.getMinutes(), 2);
 	var seconds = addZeroBefore(timeLeft.getSeconds(), 2);
-	var milliseconds = addZeroBefore(timeLeft.getMilliseconds(), 3);
+
+	if (minutes == "00" && seconds == "00") {
+		return null;
+	}
 
 	timeArray.push(minutes);
 	timeArray.push(seconds);
-	timeArray.push(milliseconds);
-	if (timeLeft.getTime() < 50) {
-		return null;
-	}
+	
 	return timeArray;
 }
 
@@ -39,16 +39,9 @@ function pomodoro() {
 	$("#task").html("Get to work!");
 	timer = window.setInterval(function() {
 		var time = getTimeRemaining(pomodoroEnd);
-		if (time != null) {
-			if (time != null) {
-				$("#minutes").html(time[0]);
-			}
-			if (time != null) {
-				$("#seconds").html(time[1]);
-			}
-			if (time != null) {
-				$("#milliseconds").html(time[2]);
-			}
+		if () {
+			$("#minutes").html(time[0]);	
+			$("#seconds").html(time[1]);
 		} else {
 			clearInterval(timer);
 			takeBreak.play();
@@ -68,15 +61,8 @@ function pomodoro_break() {
 	timer = window.setInterval(function() {
 		var time = getTimeRemaining(breakEnd);
 		if (time != null) {
-			if (time != null) {
-				$("#minutes").html(time[0]);
-			}
-			if (time != null) {
-				$("#seconds").html(time[1]);
-			}
-			if (time != null) {
-				$("#milliseconds").html(time[2]);
-			}
+			$("#minutes").html(time[0]);	
+			$("#seconds").html(time[1]);
 		} else {
 			clearInterval(timer);
 			toWork.play();
@@ -85,12 +71,9 @@ function pomodoro_break() {
 	}, 1);
 }
 
-function addZeroBefore(number, amount) {
-	if(number < (10**amount) && number > -(10**amount)) {
-		number = number.toString();
-		var prefix = (10 ** (amount - number.length)) + " ";
-		prefix = prefix.slice(1,-1);
-		number = prefix + parseInt(number);
+function addZeroBefore(number) {
+	if(number < 10) {
+		number = "0" + number;
 	}
 	return number;
 }
