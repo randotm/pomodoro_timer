@@ -47,7 +47,7 @@ function pomodoro() {
 			takeBreak.play();
 			pomodoro_break();
 		}
-	}, 900);
+	}, 500);
 	cycleCount += 1;
 }
 
@@ -68,7 +68,7 @@ function pomodoro_break() {
 			toWork.play();
 			pomodoro();
 		}
-	}, 900);
+	}, 500);
 }
 
 function addZeroBefore(number) {
