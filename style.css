@@ -1,3 +1,11 @@
 .why {
-  background: url("anim_BODY_1.png");
+	height: 30%;
+	width: 10%;
+  	background: url("anim_BODY_1.png");
+  	background-size: contain;
+}
+
+body {
+	height: 100%;
+	width: 100%;
 }
